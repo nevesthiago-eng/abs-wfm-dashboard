@@ -1,0 +1,80 @@
+/* ============================================================
+   charts.css — Containers dos Gráficos Chart.js
+   ============================================================ */
+
+/* ─── CARD DO GRÁFICO ─── */
+.chart-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    padding: 24px 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--duration) var(--ease-out);
+}
+
+.chart-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Acento azul sutil na borda esquerda */
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 16px; bottom: 16px;
+    left: 0;
+    width: 3px;
+    background: var(--primary);
+    border-radius: 0 3px 3px 0;
+    opacity: 0.6;
+}
+
+/* ─── CANVAS ─── */
+.chart-card canvas {
+    width: 100% !important;
+    max-height: 400px;
+}
+
+/* ─── CONTAINERS INDIVIDUAIS ─── */
+#chart-entrada-container,
+#chart-saida-container {
+    max-height: 470px;
+    overflow: hidden;
+}
+
+/* ─── LEGENDA INLINE (se necessário) ─── */
+.chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray);
+}
+
+.chart-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .chart-card {
+        padding: 16px;
+    }
+
+    .chart-card canvas {
+        max-height: 320px;
+    }
+}

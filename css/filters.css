@@ -1,0 +1,153 @@
+/* ============================================================
+   filters.css — Barra de Filtros
+   Select de mês, UG, data, modo + botão atualizar + status dot.
+   ============================================================ */
+
+/* ─── CONTAINER DA BARRA ─── */
+.filters-bar {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+}
+
+/* ─── LABELS ─── */
+.filters-bar label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 2px;
+    white-space: nowrap;
+}
+
+.filters-bar label i {
+    font-size: 10px;
+    color: var(--primary);
+}
+
+/* ─── SELECTS ─── */
+.filters-bar select {
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 7px 30px 7px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235A6A7A'/%3E%3C/svg%3E") no-repeat right 10px center;
+    -webkit-appearance: none;
+    appearance: none;
+    color: var(--dark);
+    min-width: 130px;
+    cursor: pointer;
+    transition: border-color var(--duration), box-shadow var(--duration);
+}
+
+.filters-bar select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 112, 224, 0.12);
+}
+
+.filters-bar select:hover {
+    border-color: var(--primary);
+}
+
+/* ─── BOTÃO ATUALIZAR ─── */
+.btn-refresh {
+    margin-left: auto;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all var(--duration) var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 2px 8px rgba(0, 112, 224, 0.25);
+    white-space: nowrap;
+}
+
+.btn-refresh:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 4px 14px rgba(0, 112, 224, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn-refresh:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 112, 224, 0.2);
+}
+
+.btn-refresh:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ─── STATUS DOT ─── */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray);
+    background: var(--surface-2);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 5px 12px;
+}
+
+.status-bar .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-bar .dot.connected {
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+    animation: pulse-dot 2s infinite;
+}
+
+.status-bar .dot.disconnected {
+    background: var(--danger);
+}
+
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2); }
+    50%       { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.08); }
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .filters-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 16px;
+        gap: 8px;
+    }
+
+    .filters-bar label { margin-bottom: 0; }
+    .filters-bar select { min-width: unset; width: 100%; }
+    .btn-refresh { margin-left: 0; width: 100%; justify-content: center; }
+    .status-bar { justify-content: center; }
+}

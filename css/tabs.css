@@ -1,0 +1,210 @@
+/* ============================================================
+   tabs.css — Seção Analítica: Abas e Tabelas
+   ============================================================ */
+
+/* ─── SEÇÃO ANALÍTICA (WRAPPER) ─── */
+.analytics-section {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+}
+
+/* ─── CABEÇALHO DAS ABAS ─── */
+.analytics-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.analytics-tabs::-webkit-scrollbar { display: none; }
+
+/* ─── BOTÕES DE ABA ─── */
+.tab-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 15px 18px;
+    border: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all var(--duration) var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    position: relative;
+}
+
+.tab-btn i {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.tab-btn:hover {
+    color: var(--dark);
+    background: rgba(0, 112, 224, 0.04);
+}
+
+.tab-btn:hover i {
+    opacity: 1;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: var(--surface);
+}
+
+.tab-btn.active i {
+    opacity: 1;
+}
+
+/* ─── PAINÉIS DAS ABAS ─── */
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeSlideIn 0.2s var(--ease-out) both;
+    max-height: 420px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.tab-panel.active::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tab-panel.active::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tab-panel.active::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 99px;
+}
+
+/* ─── TABELAS ─── */
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.analytics-table thead {
+    background: var(--surface-2);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.analytics-table th {
+    padding: 11px 20px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-bottom: 1px solid var(--border);
+}
+
+.analytics-table td {
+    padding: 11px 20px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+    color: var(--dark-2);
+    font-weight: 400;
+}
+
+.analytics-table td strong {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* ─── HOVER NAS LINHAS ─── */
+.analytics-table tbody tr {
+    cursor: pointer;
+    transition: background var(--duration);
+}
+
+.analytics-table tbody tr:hover {
+    background: var(--primary-faint);
+}
+
+.analytics-table tbody tr:hover td {
+    color: var(--primary-dark);
+}
+
+.analytics-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ─── COLUNA NUMÉRICA ─── */
+.analytics-table .num-col {
+    text-align: right;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    color: var(--primary);
+    padding-right: 24px;
+}
+
+/* ─── INFO BOX (MODAL SEQ) ─── */
+.seq-info {
+    padding: 8px 0;
+}
+
+.seq-info p {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: var(--dark-2);
+    padding: 10px 16px;
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
+}
+
+.seq-info p strong {
+    font-weight: 700;
+    color: var(--gray);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .tab-btn {
+        min-width: 110px;
+        padding: 12px 12px;
+        font-size: 12px;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 10px 14px;
+    }
+
+    .analytics-table .num-col {
+        padding-right: 14px;
+    }
+}

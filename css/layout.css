@@ -1,0 +1,145 @@
+/* ============================================================
+   layout.css — Header, Footer, Container, User Info
+   ============================================================ */
+
+/* ─── HEADER ─── */
+.app-header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--primary);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.app-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ─── LOGO / BRAND ─── */
+.app-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 112, 224, 0.35);
+}
+
+.brand-text h1 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.brand-text h1 span {
+    color: var(--primary);
+}
+
+.brand-text small {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-light);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 1px;
+}
+
+/* ─── AÇÕES DO HEADER ─── */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ─── USER INFO ─── */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark-2);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px 4px 4px;
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+/* ─── BOTÃO SAIR ─── */
+#logout-btn {
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    transition: all var(--duration) var(--ease-out);
+}
+
+/* ─── DASHBOARD WRAPPER ─── */
+#dashboard-screen {
+    display: none;
+    padding: 28px 0 40px;
+}
+
+#dashboard-screen .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ─── FOOTER ─── */
+.app-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-light);
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--border-light);
+    margin-top: 8px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .app-header .container {
+        padding: 12px 16px;
+    }
+
+    .brand-text h1 { font-size: 16px; }
+    .brand-text small { display: none; }
+
+    #dashboard-screen .container {
+        padding: 0 16px;
+    }
+}

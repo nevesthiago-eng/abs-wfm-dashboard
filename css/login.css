@@ -1,0 +1,163 @@
+/* ============================================================
+   login.css — Tela de Login
+   Fundo com gradiente azul suave, card elevado, botão Google.
+   ============================================================ */
+
+/* ─── FUNDO DA TELA DE LOGIN ─── */
+#login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 70px);
+    padding: 40px 16px;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 112, 224, 0.08) 0%, transparent 70%),
+        var(--bg);
+}
+
+/* ─── CARD PRINCIPAL ─── */
+.login-card {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: 52px 44px 44px;
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+    border: 1px solid var(--border-light);
+    animation: fadeSlideIn 0.4s var(--ease-out) both;
+}
+
+/* ─── ÍCONE / LOGO ─── */
+.login-card .icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 24px rgba(0, 112, 224, 0.3);
+    color: #fff;
+    font-size: 26px;
+}
+
+/* ─── TEXTOS ─── */
+.login-card h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+}
+
+.login-card h2 span {
+    color: var(--primary);
+}
+
+.login-card > p {
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ─── CRACHÁ DE SEGURANÇA ─── */
+.login-security-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gray-light);
+    background: var(--surface-2);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 5px 14px;
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+
+.login-security-note i {
+    color: var(--success);
+    font-size: 11px;
+}
+
+/* ─── BOTÃO LOGIN GOOGLE ─── */
+#google-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#login-btn-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 13px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all var(--duration) var(--ease-out);
+    box-shadow: var(--shadow-sm);
+    min-width: 240px;
+    justify-content: center;
+}
+
+#login-btn-google:hover {
+    background: var(--primary-faint);
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(0, 112, 224, 0.18);
+    transform: translateY(-1px);
+}
+
+#login-btn-google:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ─── STATUS DE LOGIN ─── */
+#login-status {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 16px;
+    min-height: 20px;
+    font-weight: 500;
+}
+
+/* ─── DIVISOR ─── */
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+    color: var(--gray-light);
+    font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 36px 24px 32px;
+    }
+
+    .login-card h2 { font-size: 20px; }
+    #login-btn-google { min-width: unset; width: 100%; }
+}

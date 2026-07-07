@@ -1,0 +1,115 @@
+/* ============================================================
+   kpis.css — Cards de KPI
+   4 indicadores no topo: Previsto, Logado, Faltas, % Presença.
+   Borda superior colorida por tipo, ícone em bolha, hover lift.
+   ============================================================ */
+
+/* ─── CARD BASE ─── */
+.kpi-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    padding: 22px 20px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--duration) var(--ease-out),
+                box-shadow var(--duration) var(--ease-out);
+}
+
+/* Linha colorida no topo de cada card */
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--kpi-color, var(--primary));
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ─── BOLHA DE ÍCONE ─── */
+.kpi-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+    background: var(--kpi-color-light, var(--primary-light));
+    color: var(--kpi-color, var(--primary));
+    flex-shrink: 0;
+}
+
+/* ─── TEXTO ─── */
+.kpi-label {
+    font-size: 10px;
+    color: var(--gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.kpi-value {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--dark);
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.kpi-sub {
+    font-size: 11px;
+    color: var(--gray-light);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* ─── CORES POR CARD (via variáveis CSS no HTML) ─── */
+/* Card 1 — Previsto (azul) */
+.kpi-card.kpi-prev {
+    --kpi-color: var(--primary);
+    --kpi-color-light: var(--primary-light);
+}
+
+/* Card 2 — Logado (verde) */
+.kpi-card.kpi-logado {
+    --kpi-color: var(--success);
+    --kpi-color-light: var(--success-light);
+}
+
+/* Card 3 — Faltas (vermelho) */
+.kpi-card.kpi-faltas {
+    --kpi-color: var(--danger);
+    --kpi-color-light: var(--danger-light);
+}
+
+/* Card 4 — Presença (dinâmico via JS, default azul) */
+.kpi-card.kpi-presenca {
+    --kpi-color: var(--primary);
+    --kpi-color-light: var(--primary-light);
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .kpi-card {
+        padding: 18px 16px 16px;
+    }
+
+    .kpi-value { font-size: 28px; }
+    .kpi-icon  { width: 38px; height: 38px; font-size: 16px; }
+}
